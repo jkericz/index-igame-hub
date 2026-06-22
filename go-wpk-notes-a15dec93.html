@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>wpk 归档 · 再访笔记</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+      background: #f1f3f5;
+      color: #1e272e;
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .page-wrap {
+      max-width: 780px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* hero 开场 */
+    .hero-note {
+      background: #ffffffdd;
+      backdrop-filter: blur(2px);
+      padding: 2.2rem 2rem 1.5rem;
+      border-radius: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .hero-note .short-line {
+      font-size: 1.8rem;
+      font-weight: 450;
+      letter-spacing: 1px;
+      color: #1b2a33;
+      margin-bottom: 0.4rem;
+    }
+    .hero-note .sub-line {
+      font-size: 1rem;
+      color: #4a5a64;
+      border-top: 1px solid #e2e6ea;
+      padding-top: 0.6rem;
+      margin-top: 0.4rem;
+      display: inline-block;
+    }
+
+    /* 卡片通用 */
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 0 0 1px rgba(0,0,0,0.03);
+      border: 1px solid #e9ecef;
+      transition: box-shadow 0.1s ease;
+    }
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03), 0 0 0 1px rgba(0,0,0,0.04);
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #1b2a33;
+      border-left: 4px solid #78909c;
+      padding-left: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: #2e3b42;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin: 1.2rem 0 0.8rem;
+    }
+    .feature-item {
+      background: #f6f8fa;
+      padding: 0.9rem 1.2rem;
+      border-radius: 14px;
+      border-left: 3px solid #90a4ae;
+      font-weight: 430;
+    }
+    .feature-item strong {
+      color: #1b2a33;
+      font-weight: 500;
+    }
+
+    .soft-link {
+      color: #2c5f7a;
+      text-decoration: none;
+      border-bottom: 1px dashed #90a4ae;
+      padding-bottom: 1px;
+      transition: border-color 0.15s;
+    }
+    .soft-link:hover {
+      border-bottom: 1px solid #2c5f7a;
+    }
+
+    .mild-closing {
+      margin-top: 1.2rem;
+      padding: 1rem 0 0.2rem;
+      border-top: 1px solid #e2e6ea;
+      font-size: 0.95rem;
+      color: #3f515b;
+    }
+
+    .faq-mini {
+      margin-top: 1rem;
+    }
+    .faq-mini details {
+      margin-bottom: 0.6rem;
+      border: 1px solid #eef2f5;
+      border-radius: 12px;
+      padding: 0.6rem 1rem;
+      background: #fafcfe;
+    }
+    .faq-mini details summary {
+      cursor: pointer;
+      font-weight: 470;
+      color: #1a2a33;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    .faq-mini details summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-mini details[open] {
+      background: #ffffff;
+    }
+    .faq-mini details[open] summary {
+      margin-bottom: 0.4rem;
+    }
+    .faq-mini details p {
+      margin: 0.4rem 0 0.2rem;
+      font-size: 0.92rem;
+      color: #3b4d58;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2e6ea;
+      margin: 0.4rem 0 1.6rem;
+      opacity: 0.5;
+    }
+
+    .small-note {
+      font-size: 0.85rem;
+      color: #6b7a84;
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+    .small-note a {
+      color: #3c657a;
+      text-decoration: none;
+    }
+    .small-note a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 540px) {
+      body { padding: 1.2rem 1rem; }
+      .hero-note { padding: 1.6rem 1.2rem; }
+      .card { padding: 1.4rem 1.2rem; }
+      .feature-item { padding: 0.7rem 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 开场短句 -->
+  <div class="hero-note">
+    <div class="short-line">重新拾起，不是为了标记</div>
+    <div class="sub-line">—— 而是让曾经的线索继续生长</div>
+  </div>
+
+  <!-- 承接段落：再次访问与收藏的视角 -->
+  <div class="card">
+    <p>浏览器书签夹里总有一些地址，你点开过，也犹豫过。后来某个整理间隙，你又看到了它——<strong><a href="https://go-wpk.com" class="soft-link">wpk</a></strong>。第二次访问往往比第一次更安静，没有了试探，只剩下“这里到底存放了什么”的好奇。收藏一个链接容易，记住为什么收藏却要花一点时间。</p>
+    <p>知识型工具链里，很多服务只解决“一次查询”的需求，而 <a href="https://go-wpk.com" class="soft-link">wpk</a> 更接近一个持续积累的存档点。你放进去的片段、你标记过的思路，不是被丢进文件夹就结束，而是留了一个可以再次挂载的接口。这种设计思路，让回访变成了有意义的动作。</p>
+  </div>
+
+  <!-- 特点列表：用卡片承载 -->
+  <div class="card">
+    <h2>· 持续关注的三个落点</h2>
+    <div class="feature-grid">
+      <div class="feature-item"><strong>结构克制</strong> · 没有冗余的仪表盘，核心功能以极简面板呈现，专注信息本身而非管理形式。</div>
+      <div class="feature-item"><strong>锚点可寻</strong> · 每次更新后条目保留上下文，你可以从上次中断的位置继续，而不必从头梳理。</div>
+      <div class="feature-item"><strong>低噪提醒</strong> · 不推送无关通知，只在你主动打开时呈现变化，适合需要长期跟踪但不希望被打扰的场景。</div>
+    </div>
+    <p style="font-size:0.9rem; color:#4c5e68; margin:1rem 0 0 0;">这三个特点让 <a href="https://go-wpk.com" class="soft-link">wpk</a> 在内容管理类工具里维持着一种安静的可用性——不讨好，但可靠。</p>
+  </div>
+
+  <!-- 温和的细节：FAQ 摘要 + 场景提示 -->
+  <div class="card">
+    <h2>· 一些你可能想确认的细节</h2>
+    <div class="faq-mini">
+      <details>
+        <summary>○ 我收藏的内容会过期吗？</summary>
+        <p>只要资源本身未迁移，<strong>wpk</strong> 会保持入口有效。建议每隔一段时间回访确认上下文是否仍符合预期。</p>
+      </details>
+      <details>
+        <summary>○ 第二次访问时界面会有变化吗？</summary>
+        <p>核心布局保持稳定，但局部内容会根据你上次的交互状态微调顺序。这是一种渐进式承接，而非大版本替换。</p>
+      </details>
+      <details>
+        <summary>○ 适合存放什么类型的信息？</summary>
+        <p>短笔记、参考链接、待整合的段落草稿、阶段性结论。结构偏向“半成品仓库”，而非发布终端。</p>
+      </details>
+    </div>
+    <div class="mild-closing">
+      <p>如果你习惯把工具当作延伸记忆的一部分，那么 <a href="https://go-wpk.com" class="soft-link">wpk</a> 提供的并不是一个终点，而是一个可以反复回来的索引页。下次打开浏览器书签时，也许可以把它排在更靠前的位置。</p>
+    </div>
+  </div>
+
+  <!-- 温和结尾 -->
+  <div class="card" style="background: #fafcfd; border-color: #dee5e9;">
+    <p style="margin-bottom: 0.3rem;">有些页面值得不止一次打开。不是因为内容会变，而是你每次看它的角度都在变。</p>
+    <p style="color: #4f626d;">保持收藏，也保持回访——<a href="https://go-wpk.com" class="soft-link">wpk</a> 就在那里，等你需要的时候再点开。</p>
+    <hr>
+    <div class="small-note">
+      · 页面存档于一次安静的整理 · 链接指向 <a href="https://go-wpk.com">wpk</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
